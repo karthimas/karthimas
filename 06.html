@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>பாவகங்கள்</title>
+  <style>
+  /* Disable text selection */
+  body {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Standard syntax */
+  }
+</style>
+
+<script>
+  // Disable right-click
+  document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+
+  // Disable copy, cut, paste
+  document.addEventListener('copy', function(e) {
+    e.preventDefault();
+  });
+  document.addEventListener('cut', function(e) {
+    e.preventDefault();
+  });
+  document.addEventListener('paste', function(e) {
+    e.preventDefault();
+  });
+
+  // Optional: Disable keyboard shortcuts like Ctrl+U, Ctrl+C
+  document.onkeydown = function(e) {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'c' || e.key === 'x' || e.key === 'a' || e.key === 's')) {
+      return false;
+    }
+  };
+</script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fffdf4;
+      color: #222;
+      padding: 2em;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      color: #8b0000;
+      text-align: center;
+      margin-bottom: 0.5em;
+    }
+    h2 {
+      color: #d2691e;
+      margin-top: 1.5em;
+    }
+    a {
+      display: inline-block;
+      margin-top: 2em;
+      color: #8b0000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+	 form label {
+      display: block;
+      margin-top: 1em;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 0.5em;
+    }
+    form button {
+      margin-top: 1em;
+      background-color: #8b0000;
+      color: white;
+      padding: 0.75em 1.5em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+  </style>
+</head>
+<body>
+
+  <h1>6ம் பாவகம்</h1>
+
+  <p>
+    Will be updated soon...
+  </p>
+
+  <a href="index.html">← பின்வாங்கு</a>
+  <section id="booking" class="booking">
+    <h2>சந்திப்பு முன்பதிவு</h2>
+    <form onsubmit="sendWhatsApp(); return false;">
+      <label>பெயர்:</label>
+      <input type="text" id="name" required>
+      <label>பிறந்த தேதி:</label>
+      <input type="date" id="dob" required>
+      <label>பிறந்த நேரம்:</label>
+      <input type="time" id="tob" required>
+      <label>பிறந்த இடம்:</label>
+      <input type="text" id="pob" required>
+      <label>அலைபேசி எண்:</label>
+      <input type="tel" id="phone" required>
+      <label>கேள்வி / சேவை தேவைகள்:</label>
+      <textarea id="query" required></textarea>
+      <button type="submit">WhatsApp மூலம் அனுப்பவும்</button>
+    </form>
+  </section>
+   <script>
+    function sendWhatsApp() {
+      const name = document.getElementById('name').value;
+      const dob = document.getElementById('dob').value;
+      const tob = document.getElementById('tob').value;
+      const pob = document.getElementById('pob').value;
+      const phone = document.getElementById('phone').value;
+      const query = document.getElementById('query').value;
+      const message = `ஜோதிட பதிவு
+பெயர்: ${name}
+பிறந்த தேதி: ${dob}
+நேரம்: ${tob}
+இடம்: ${pob}
+அலைபேசி: ${phone}
+வினா: ${query}`;
+      const url = `https://wa.me/919566854137?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script>
+
+</body>
+</html>
